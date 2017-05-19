@@ -17,6 +17,19 @@ This diagram outlines how the gateway works. But in summary:-
 ![The Things Network](https://raw.githubusercontent.com/gloveboxes/The-Things-Network-Azure-IoT-Hub-Gateway/master/Resources/Architecture.JPG)
 
 
+# Gateway App Settings
+
+The following Azure Function App app setting keys are required
+
+|-----|------|
+|Key|Value|
+|IoTHubHostname||
+|IotHubRegistryReadPolicyKeyName||
+|IotHubRegistryReadPolicyKey||
+|TTNAppIDsCommaSeperated||
+
+
+
 
 # Gateway Configuration
 

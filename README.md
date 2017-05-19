@@ -1,6 +1,23 @@
 # The-Things-Network-Azure-IoT-Hub-Gateway
 The Azure Function App bridges The Things Network and Azure IoT Hub networks
 
+# The Things Network To Azure IoT Hub Gateway
+
+This diagram outlines how the gateway works. But in summary:-
+
+1. The HTTP POST request from The Things Networks triggers the Azure Function App Gateway.
+2. The Gateway validates The Things Network Application Id
+3. The Gateway gets the device key (matched by device id) from the Azure IoT Hub Device Registry.
+4. An Azure IoT Hub SaS Token is generated using the device key.
+5. The Things Network payload is readied for Azure IoT Hub
+    * The raw Things Network payload is transformed to a JSON payload.
+    * An Azure IoT Hub Routing HTTP Header is added named "route-id" whose value is the name of the Things Network Application prefixed with "ttn-" 
+6. The data is sent to Azure IoT Hub. 
+
+![The Things Network](https://raw.githubusercontent.com/gloveboxes/The-Things-Network-Azure-IoT-Hub-Gateway/master/Resources/Architecture.JPG)
+
+
+
 # Gateway Configuration
 
 
@@ -18,21 +35,6 @@ From The Things Network Application Console create a new HTTP Integration and pa
 
 ![Things Network Integration](https://raw.githubusercontent.com/gloveboxes/The-Things-Network-Azure-IoT-Hub-Gateway/master/Resources/TheThingsNetworkHttpIntegration.JPG)
 
-
-# The Things Network To Azure IoT Hub Gateway
-
-This diagram outlines how the gateway works. But in summary:-
-
-1. The HTTP POST request from The Things Networks triggers the Azure Function App Gateway.
-2. The Gateway validates The Things Network Application Id
-3. The Gateway gets the device key (matched by device id) from the Azure IoT Hub Device Registry.
-4. An Azure IoT Hub SaS Token is generated using the device key.
-5. The Things Network payload is readied for Azure IoT Hub
-    * The raw Things Network payload is transformed to a JSON payload.
-    * An Azure IoT Hub Routing HTTP Header is added named "route-id" whose value is the name of the Things Network Application prefixed with "ttn-" 
-6. The data is sent to Azure IoT Hub. 
-
-![The Things Network](https://raw.githubusercontent.com/gloveboxes/The-Things-Network-Azure-IoT-Hub-Gateway/master/Resources/Architecture.JPG)
 
 
 

@@ -60,7 +60,7 @@ namespace TheThingsNetworkGateway
 
 ## Gateway App Settings
 
-The following Azure Function App Application Setting keys are required
+The following Azure Function App Application Setting Keys/Value pairs are required
 
 
 |Key|Value|

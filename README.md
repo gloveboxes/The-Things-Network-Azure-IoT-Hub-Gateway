@@ -3,6 +3,8 @@ The Azure Function App bridges The Things Network and Azure IoT Hub networks
 
 # The Things Network To Azure IoT Hub Gateway
 
+![The Things Network](https://raw.githubusercontent.com/gloveboxes/The-Things-Network-Azure-IoT-Hub-Gateway/master/Resources/Architecture.JPG)
+
 This diagram outlines how the gateway works. But in summary:-
 
 1. The HTTP POST request from The Things Networks triggers the Azure Function App Gateway.
@@ -14,7 +16,7 @@ This diagram outlines how the gateway works. But in summary:-
     * An Azure IoT Hub Routing HTTP Header is added named "route-id" whose value is the name of the Things Network Application prefixed with "ttn-" 
 6. The data is sent to Azure IoT Hub. 
 
-![The Things Network](https://raw.githubusercontent.com/gloveboxes/The-Things-Network-Azure-IoT-Hub-Gateway/master/Resources/Architecture.JPG)
+
 
 
 # Gateway App Settings

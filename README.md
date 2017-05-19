@@ -24,7 +24,7 @@ The following Azure Function App app setting keys are required
 
 |Key|Value|
 |-----|------|
-|IoTHubHostname| YourIoTHub.azure-devices.net|
+|IoTHubHostname| youriothub.azure-devices.net|
 |IotHubRegistryReadPolicyKeyName|Default name is registryRead |
 |IotHubRegistryReadPolicyKey| Your registry read key|
 |TTNAppIDsCommaSeperated| Comma separated list of The Things Network application names that will use this gateway|

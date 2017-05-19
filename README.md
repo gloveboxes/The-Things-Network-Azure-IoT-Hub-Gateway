@@ -16,10 +16,49 @@ This diagram outlines how the gateway works. But in summary:-
     * An Azure IoT Hub Routing HTTP Header is added named "route-id" whose value is the name of the Things Network Application prefixed with "ttn-" 
 6. The data is sent to Azure IoT Hub. 
 
+# How to Deploy the Azure Function App to Azure
+
+This outlines the process to publish the gateway solution to Azure.
+
+1. On the Azure Portal create a Function App
+2. Download the Publish Profile
+3. Clone this solution
+4. Open with Visual Studio 2017 (Community Edition is fine)
+4. Modify the Telemetry class to match your requirements
+5. Publish the solution to Azure by right mouse clicking on the Project.
+6. From Publish dialogue target and import the Publish Profile you downloaded
+7. Create New
+8. Publish
 
 
 
-# Gateway App Settings
+
+## Telemetry Schema
+
+You need to modify the Telemetry Class to match the shape of the data passed from The Things Network
+
+```c#
+using Newtonsoft.Json;
+using System;
+
+namespace TheThingsNetworkGateway
+{
+    public class Telemetry
+    {
+        public UInt32 Level { get; set; }
+        public string Schema { get; set; } = "1";
+        public string ToJson(UInt32 level)
+        {
+            this.Level = level;
+            return JsonConvert.SerializeObject(this);
+        }
+    }
+}
+
+```
+
+
+## Gateway App Settings
 
 The following Azure Function App app setting keys are required
 
@@ -55,26 +94,4 @@ From The Things Network Application Console create a new HTTP Integration and pa
 
 
 
-# Telemetry Schema
 
-You need to modify the Telemetry Class to match the shape of the data passed from The Things Network
-
-```c#
-using Newtonsoft.Json;
-using System;
-
-namespace TheThingsNetworkGateway
-{
-    public class Telemetry
-    {
-        public UInt32 Level { get; set; }
-        public string Schema { get; set; } = "1";
-        public string ToJson(UInt32 level)
-        {
-            this.Level = level;
-            return JsonConvert.SerializeObject(this);
-        }
-    }
-}
-
-```
